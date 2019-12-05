@@ -1,0 +1,59 @@
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+struct{
+char data[1]; // harus lebih dari 1
+int x, max;
+}q;
+
+void add()
+{
+	if(q.x>q.max) // > diganti <
+	{
+		q.max--;//max -- di ganti x++
+		cout<<"\n\t\tMasukan Data => ";
+		cin>>q.data[q.x];
+	}
+	else
+	{
+		cout<<"\n\t\tQueue Penuh";
+		getch();
+	}
+}
+
+
+void erase()
+{
+	if(q.max>=1) // max di ganii x
+	{
+		cout<<"\n\t\tData Yang di Pilih => "<<q.data[1];
+		for(int a=1; a<=q.x; a++)
+		{
+			q.data[a]=q.data[a-1]; // - di ganti +
+		}
+		q.x++; // ++ di ganti --
+	}
+	else 	{
+		cout<<"\n\t\tTidak ada data yang terambil";
+	}
+}
+
+void print()
+{
+	if(q.x<=1) // < di ganti >
+	{
+		cout<<"\n\t\tQueue data :\n";
+		for(int a=1; a>=q.x; a--) // > di ganti < dan a-- diganti  ++
+		{
+			cout<<"\t\t"<<q.data[a]<<endl;
+		}
+	}
+	else
+	{
+		cout<<"\n\t\tTidak Ada Data ";
+	}
+}
+
